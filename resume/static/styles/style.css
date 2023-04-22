@@ -107,6 +107,9 @@ nav ul li a:hover::after{
 .about-col-2{
     flex-basis: 60%;
 }
+.about-col-2 p{
+    line-height: 1.2rem;
+}
 
 .sub-title{
     font-size: 60px;
@@ -156,6 +159,13 @@ nav ul li a:hover::after{
 .tab-contents{
     display: none;
 }
+.skill{
+    width: 60%;
+    columns: 3;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+}
+
 .tab-contents.active-tab{
     display: block;   
 }
@@ -182,6 +192,10 @@ nav ul li a:hover::after{
 .services-list div i{
     font-size: 50px;
     margin-bottom: 50px;
+}
+.services-list div p{
+    font-size: 14px;
+    line-height: 1.2rem;
 }
 
 .services-list div h3{
@@ -220,9 +234,13 @@ nav ul li a:hover::after{
     border-radius: 10px;
     position: relative;
     overflow: hidden;
+    
 }
 .work img{
+    /* width: 500px; */
+    height: 500px;
     width: 100%;
+    object-fit: cover;
     /* border-radius: 10px; */
     display: block;
     transition: transform(0.5s);
@@ -306,6 +324,10 @@ nav ul li a:hover::after{
     margin-right:  15px;
     font-size: 25px;
 }
+.contact-left p a{
+    color: #fff;
+    text-decoration: none;
+}
 .social-icon{
     margin-top: 30px;
 }
@@ -359,7 +381,11 @@ form .btn2{
 }
 
 
-
+#msg{
+    color: green;
+    margin-top: -40px;
+    display: block;
+}
 
 
 /* ---------------responsive----------- */
@@ -418,6 +444,12 @@ nav .fa-solid{
     }
     .about-col-2{
         font-size: 14px;
+    }
+    .skill{
+        width: 100%;
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
     }
     .tab-links{
         font-size: 16px;

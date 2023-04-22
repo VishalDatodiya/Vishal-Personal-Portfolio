@@ -30,6 +30,7 @@
             <div class="header-text">
                 <p>Software Developer</p>
                 <h1>Hello, I'm <span> Vishal </span> <br> Datodiya from Indore</h1>
+                <a href="{% static 'images/Vishal_Software_Developer.pdf' %}" download class="btn btn2">Download CV</a>
             </div>
         </div>
     </div>
@@ -46,7 +47,7 @@
                     <h1 class="sub-title">About me </h1>
                     <p>I'm a passionate learner who's always willing to learn and is never tired of trying hands on something new. I'm a proactive, Inquisitive, and dedicated person, who loves to take up new challenges and learn new skills. I love meeting new people, exchanging ideas, and spreading knowledge and positivity. <br><br>
 
-                        I am Skilled in Python, Django, SQL, Data structures, and Algorithms with a good knowledge of Object-Oriented Programming! <br><br>
+                        I am Skilled in Python, Django, SQL, Data structures, and Algorithms and a good knowledge of Object-Oriented Programming. <br><br>
     
                         My interests include technology, traveling. I am also a team player and a self-starter that likes to engage in a logical thinking approach to problem-solving.</p>
 
@@ -56,17 +57,31 @@
                         <p class="tab-links" onclick="opentab('education')">Education</p>
                     </div>
                     <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>Python Developer</span><br>Designing Software application</li>
+                        <ul class="skill">
+                            <!-- <li><span>Python Developer</span><br>Designing Software application</li>
                             <li><span>Web Developer</span><br>Designing Web pages for application</li>
-                            <li><span>Django Developer</span><br>Designing Full Stack Application</li>
+                            <li><span>Django Developer</span><br>Designing Full Stack Application</li> -->
+                            <li>Python</li>
+                            <li>DJango</li>
+                            <li>Django Rest Framework</li>
+                            <li>Pandas</li>
+                            <li>Numpy</li>
+                            <li>Java</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScripts</li>
+                            <li>SQL</li>
+                            <li>MongoDB</li>
+                            <li>GitHub</li>
+                            <li>Deployment</li>
+
                         </ul>
                     </div>
                     <div class="tab-contents" id="experience">
                         <ul>
-                            <li><span>Python Developer</span><br>Designing Software application in <span>Adcuratio</span></li>
+                            <li><span>Python Developer</span><br>I worked in <span>Adcuratio</span> and <span>Coding Ninjas</span> as a Python Developer. Where I worked on different projects.</li>
                             <li><span>Tachnical Tutor</span><br>Solved the 750+ doubts of coding in <span>Coding Ninjas</span></li>
-                            <li><span>Technical Support Engineer</span><br>Worked on 2 different projects where I worked on backend and frontend in <span>Cognizant</span></li>
+                            <li><span>Technical Support Engineer</span><br>As a Technical Support Engineer in <span>Cognizant</span>, I worked on different projects where I was worked on different parts of project like backend and database.</li>
                         </ul>
                     </div>
                     <div class="tab-contents" id="education">
@@ -91,20 +106,30 @@
             <div>
                 <i class="fa-solid fa-code"></i>
                 <h3>Python Developer</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam sit, animi consectetur corrupti excepturi quaerat quo cupiditate dignissimos explicabo nihil possimus. Obcaecati, quam doloremque vero corporis aperiam consectetur assumenda eveniet!</p>
-                <a href="#">Learn More</a>
+                <p>
+                    As a Python Developer, I am responsible for designing, implementing, and maintaining software applications using the Python programming language. My main duties include writing and testing code, debugging errors, and integrating software with existing systems. <br><br>
+                
+                    I have expertise in developing applications using Python frameworks such as Django, NumPy and Pandas. I am also proficient in using databases such as MySQL, PostgreSQL, and MongoDB.
+                </p>
+                {% comment %} <a href="#">Learn More</a> {% endcomment %}
             </div>
             <div>
                 <i class="fa-solid fa-crop"></i>
                 <h3>Django Developer</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam sit, animi consectetur corrupti excepturi quaerat quo cupiditate dignissimos explicabo nihil possimus. Obcaecati, quam doloremque vero corporis aperiam consectetur assumenda eveniet!</p>
-                <a href="#">Learn More</a>
+                <p>
+                    As a Django Developer, my primary responsibility is to design, develop, and maintain web applications using the Django framework. I have experience in building scalable and maintainable web applications using Python and Django.
+                    <br><br> 
+                    I made many project using Django. I hosted Share-knowledge application. See in My work section.
+                </p>
+                {% comment %} <a href="#">Learn More</a> {% endcomment %}
             </div>
             <div>
                 <i class="fa-brands fa-app-store-ios"></i>
                 <h3>Frontend Developer</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam sit, animi consectetur corrupti excepturi quaerat quo cupiditate dignissimos explicabo nihil possimus. Obcaecati, quam doloremque vero corporis aperiam consectetur assumenda eveniet!</p>
-                <a href="#">Learn More</a>
+                <p>
+                    As a Frontend Developer, my primary responsibility is to design, develop, and maintain the user interface of web applications. I have experience in building responsive and intuitive web applications using modern front-end technologies such as HTML5, CSS3 and JavaScript.
+                </p>
+                {% comment %} <a href="#">Learn More</a> {% endcomment %}
             </div>
         </div>
     </div>
@@ -116,32 +141,23 @@
     <div class="container">
         <h1 class="sub-title">My Work </h1>
         <div class="work-list">
+
+            {% for project in projects %}
+            
             <div class="work">
-                <img src="{% static 'images/work-1.png' %}" >
+                <img src="{{ project.project_image }}" >
                 <div class="layer">
-                    <h3>CarZone</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum cumque maiores sed nisi blanditiis atque, quibusdam enim, asperiores, in eligendi fuga esse sapiente dolorum similique non molestiae tempora dolor ipsa.</p>
-                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <h3>{{ project.name }}</h3>
+                    <p> {{ project.tools }} </p> <br>
+                    <p>{{ project.description }}</p>
+                    <a href="{{ project.project_link }}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
             </div>
-            <div class="work">
-                <img src="{% static 'images/work-2.png' %}" >
-                <div class="layer">
-                    <h3>ShareKnowledge</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum cumque maiores sed nisi blanditiis atque, quibusdam enim, asperiores, in eligendi fuga esse sapiente dolorum similique non molestiae tempora dolor ipsa.</p>
-                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
-            <div class="work">
-                <img src="{% static 'images/work-3.png' %}" >
-                <div class="layer">
-                    <h3>Snake Game</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum cumque maiores sed nisi blanditiis atque, quibusdam enim, asperiores, in eligendi fuga esse sapiente dolorum similique non molestiae tempora dolor ipsa.</p>
-                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </div>
-            </div>
+
+            {% endfor %}
+
         </div>
-        <a href="#" class="btn">See More</a>
+        {% comment %} <a href="#" class="btn">See More</a> {% endcomment %}
     </div>
 </div>
 <!-- ----------------------Contact---------------------- -->
@@ -153,24 +169,25 @@
         <div class="row">
             <div class="contact-left">
                 <h1 class="sub-title">Contact Me </h1>
-                <p><i class="fa-solid fa-paper-plane"></i>Contact@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i>0123456789</p>
+                <p><i class="fa-solid fa-paper-plane"></i><a href="mailto:vishdatodiya12@gmail.com">vishdatodiya12@gmail.com</a></p>
+                <p><i class="fa-solid fa-phone"></i>+91 977-022-4909</p>
+                <p><i class="fa-solid fa-code"></i><a href="https://leetcode.com/vishaldatodiya/" target="_blank">Leetcode</a></p>
                 <div class="social-icon">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/vishal-datodiya/" target="
-                    "><i class="fa-brands fa-linkedin"></i></a>
-                    <a href=""><i class="fa-solid fa-envelope"></i></a>
+                    
+                    <a href="https://github.com/VishalDatodiya" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/vishal-datodiya/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:vishdatodiya12@gmail.com"><i class="fa-solid fa-envelope"></i></a>
                 </div>
-                <a href="images/Vishal_Software_Developer.pdf" download class="btn btn2">Download CV</a>
+                <a href="{% static 'images/Vishal_Software_Developer.pdf' %}" download class="btn btn2">Download CV</a>
             </div>
             <div class="contact-right">
-                <form>
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email">
-                    <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email">
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
@@ -219,8 +236,26 @@
 
     </script>
 
-
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwfItCnCKuB7pRb904NETlvbuKAlS8YHAJ1LVyCqkD8MoAln7AQonWdEF9TGF50Pxmu/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent succusfully!"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            }) 
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 
 
 </body>
 </html>
+
